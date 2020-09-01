@@ -24,7 +24,7 @@
   1. Скачать проект  и перейти в каталог проекта
     
 
-    git clone https://gitlab.com/bsk88/minikube_mock-_service.git 
+    git clone https://gitlab.com/bsk88/minikube_simulate_service.git 
 
     cd minikube_simulate_service
 
