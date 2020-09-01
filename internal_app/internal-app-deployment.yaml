@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: internal-app
+spec:
+  selector:
+    matchLabels:
+      app: internal-app
+  template:
+    metadata:
+      labels:
+        app: internal-app
+    spec:
+      containers:
+        - name: internal-app
+          image: internal-app:v1
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8098
+              protocol: TCP

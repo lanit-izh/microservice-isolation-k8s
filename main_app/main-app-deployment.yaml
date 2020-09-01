@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: main-app
+spec:
+  selector:
+    matchLabels:
+      app: main-app
+  template:
+    metadata:
+      labels:
+        app: main-app
+    spec:
+      containers:
+        - name: main-app
+          image: main-app:v1
+          envFrom:
+            - configMapRef:
+                  name: app-config
+#            - name: SERVICE_URL
+#              valueFrom:
+#                configMapKeyRef:
+#                  name: app-config
+#                  key: service.url
+#              value: "http://internal-app"
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8090
+              protocol: TCP
