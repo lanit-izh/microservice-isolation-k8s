@@ -14,15 +14,9 @@ spec:
       containers:
         - name: main-app
           image: main-app:v1
-          envFrom:
-            - configMapRef:
-                  name: app-config
-#            - name: SERVICE_URL
-#              valueFrom:
-#                configMapKeyRef:
-#                  name: app-config
-#                  key: service.url
-#              value: "http://internal-app"
+          env:
+            - name: SERVICE_URL
+              value: "http://internal-app"
           imagePullPolicy: Never
           ports:
             - containerPort: 8090

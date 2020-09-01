@@ -3,5 +3,5 @@ kind: ConfigMap
 metadata:
   name: app-config
   namespace: default
-  data:
+data:
     SERVICE_URL: "http://internal-app"
