@@ -22,7 +22,7 @@ public class MainController {
     public ResponseEntity<String> getServiceName() {
         String response = restServiceRequest.getName(String.class);
         if(!response.contains("Production")){
-            response="Mock Service";
+            response="Simulator Service";
         }
         return new ResponseEntity<>("Вызван метод сервиса '"+response+"'\n", HttpStatus.OK);
     }
