@@ -21,17 +21,22 @@
    
   1. Скачать проект  
     
+
     git clone https://gitlab.com/bsk88/minikube_mock-_service.git 
-***
+
 
   2. Запустить скрипт, который запустит миникуб и развернет в нем приложения
      
-     bush run.sh
+     
+    bush run.sh
+
 
   3. После успешного выполнения проверить, что открывается swagger "Main Application" по адресу 
    
        
-       http://{host}:30002/swagger-ui.html#
+       
+    http://{host}:30002/swagger-ui.html#
+
        
    где  host - ip адрес машины, на которой развернут minikube.
    
@@ -50,7 +55,8 @@
    5. Что бы переключить работу "Main Application" с внутренного продуктового приложения на заглушку (симулятор) необходимо в терминале выполнить команду 
 
           
-          kubectl set env deployment/main-app SERVICE_URL=http://simulator
+         
+    kubectl set env deployment/main-app SERVICE_URL=http://simulator
           
     
    6. После этого, совершении запросов через swagger ui, при вызове  запроса на получения имя вызываемого сервиса в ответ приходит - 'Вызван метод сервиса 'Simulator Service' 
@@ -59,12 +65,12 @@
    7. Для завершения работы minikube необходимо выполнить команду 
    
        
-       minikube delete 
+    minikube delete 
        
    8. Затем удалить папку с проектом.
    
-       cd ..
-       rm -rf minikube_simulate_service                
+    cd ..
+    rm -rf minikube_simulate_service                
           
     
 
