@@ -9,9 +9,11 @@
 Проект включает в себя 3 приложение и конфигурационные файлы для запуска в minikube 
  * "Main Application" - главное приложение, которое мы собираемся тестировать.
  * "Internal Application" - внутреннее приложение, с которым напрямую взаимодействует "Main Application" . 
- * "Simulator Application " - приложение заглушка, которое будет подменять сервис "Internal Application". 
+ * "Simulator Application " - приложение заглушка, которое будет подменять сервис "Internal Application".
+ 
+  
 
-  ##TODO ДОБАВИТЬ КАРТИНКУ 
+  ![Alt text](src/services_schema.png?raw=true "")
 
 
 
