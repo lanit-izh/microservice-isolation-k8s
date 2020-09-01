@@ -1,51 +1,42 @@
 #!/bin/bash
+GR='\033[0;32m'
+NC='\033[0m' # No Color
 
-echo "Run minikube"
+echo "${GR}Run minikube${NC}"
 minikube start --driver=virtualbox
-echo "_________________________________________"
-echo "Download main app"
-git clone https://github.com/Bsk88/main_application.git
+echo "${GR}_________________________________________{NC}"
 
-echo "_________________________________________"
-echo "Download internal app"
-git clone https://github.com/Bsk88/internal_application.git
-
-echo "_________________________________________"
-echo "Download simulator app"
-git clone https://github.com/Bsk88/simulator.git
-
-echo "_________________________________________"
-echo "Build docker images"
+echo "${GR}Build docker images${NC}"
 eval $(minikube docker-env)
 
 docker build -t main-app:v1  ./main_application/
 docker build -t internal-app:v1 ./internal_application/
 docker build -t simulator:v1  ./simulator_application/
 
-echo "_________________________________________"
-echo "Apply configMap"
+echo "${GR}_________________________________________{NC}"
+echo "${GR}Apply configMap${NC}"
 kubectl apply -f config-map.yaml
 
-echo "_________________________________________"
-echo "Run main app in minikube"
+echo "${GR}_________________________________________{NC}"
+echo "${GR}Run main app in minikube${NC}"
 kubectl apply -f main_app_config/main-app-deployment.yaml
 kubectl apply -f main_app_config/main-app-service.yaml
 
 
-echo "_________________________________________"
-echo "Run internal app in minikube"
+echo "${GR}_________________________________________{NC}"
+echo "${GR}Run internal app in minikube${NC}"
 kubectl apply -f internal_app_config/internal-app-deployment.yaml
 kubectl apply -f internal_app_config/internal-app-service.yaml
 
 
-echo "_________________________________________"
-echo "Run simulator app in minikube"
+echo "${GR}_________________________________________{NC}"
+echo "${GR}Run simulator app in minikube${NC}"
 
 kubectl apply -f simulator_app_config/simulator-app-deployment.yaml
 kubectl apply -f simulator_app_config/simulator-app-service.yaml
 
-echo "_________________________________________"
-echo "Open main app port"
+echo "${GR}_________________________________________{NC}"
+echo "${GR}Open main app port${NC}"
 for port in {30000..30100}; do VBoxManage controlvm minikube natpf1 "NodePort$port,tcp,,$port,,$port"; done
 
 
