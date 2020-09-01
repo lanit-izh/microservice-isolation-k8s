@@ -21,10 +21,12 @@
 
   Предусловия: На запускаемой машине, установлен minikube, docker 
    
-  1. Скачать проект  
+  1. Скачать проект  и перейти в каталог проекта
     
 
     git clone https://gitlab.com/bsk88/minikube_mock-_service.git 
+
+    cd minikube_simulate_service
 
 
   2. Запустить скрипт, который запустит миникуб и развернет в нем приложения
